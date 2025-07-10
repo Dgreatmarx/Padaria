@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conta - Padaria Crosta Dourada</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-brand">
+                <h1 class="logo">Crosta Dourada</h1>
+                <span class="tagline">Padaria Artesanal</span>
+            </div>
+            
+            <nav class="nav-menu" id="navMenu">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Início</a></li>
+                    <li><a href="products.html" class="nav-link">Produtos</a></li>
+                    <li><a href="index.html#about" class="nav-link">Sobre</a></li>
+                    <li><a href="index.html#contact" class="nav-link">Contacto</a></li>
+                    <li><a href="account.html" class="nav-link active">Conta</a></li>
+                </ul>
+            </nav>
+            
+            <div class="nav-actions">
+                <button class="reseller-toggle" id="resellerToggle">
+                    <span class="reseller-icon">🏪</span>
+                    <span class="reseller-text">Sou Revendedor</span>
+                </button>
+                <button class="cart-toggle" id="cartToggle">
+                    <span class="cart-icon">🛒</span>
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+                <button class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Seção da Conta -->
+    <section class="account-section">
+        <div class="container">
+            <!-- Formulários de Login/Registo -->
+            <div class="auth-container" id="authContainer">
+                <div class="auth-toggle">
+                    <button class="auth-tab active" id="loginTab">Entrar</button>
+                    <button class="auth-tab" id="registerTab">Registar</button>
+                </div>
+                
+                <!-- Formulário de Login -->
+                <div class="auth-form" id="loginForm">
+                    <h2>Bem-vindo de Volta</h2>
+                    <form class="form" id="loginFormElement">
+                        <div class="form-group">
+                            <label for="loginEmail">Email</label>
+                            <input type="email" id="loginEmail" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword">Palavra-passe</label>
+                            <input type="password" id="loginPassword" name="password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">Entrar</button>
+                    </form>
+                    <p class="auth-note">Demo: Use qualquer email e palavra-passe para entrar</p>
+                </div>
+                
+                <!-- Formulário de Registo -->
+                <div class="auth-form" id="registerForm" style="display: none;">
+                    <h2>Criar Conta</h2>
+                    <form class="form" id="registerFormElement">
+                        <div class="form-group">
+                            <label for="registerName">Nome Completo</label>
+                            <input type="text" id="registerName" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerEmail">Email</label>
+                            <input type="email" id="registerEmail" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerPhone">Telefone</label>
+                            <input type="tel" id="registerPhone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerPassword">Palavra-passe</label>
+                            <input type="password" id="registerPassword" name="password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerAddress">Morada</label>
+                            <textarea id="registerAddress" name="address" rows="3" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">Registar</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Painel do Utilizador -->
+            <div class="user-dashboard" id="userDashboard" style="display: none;">
+                <div class="dashboard-header">
+                    <h2>A Minha Conta</h2>
+                    <button class="btn btn-secondary" id="logoutBtn">Sair</button>
+                </div>
+                
+                <div class="dashboard-tabs">
+                    <button class="dashboard-tab active" data-tab="profile">Perfil</button>
+                    <button class="dashboard-tab" data-tab="orders">Encomendas</button>
+                    <button class="dashboard-tab" data-tab="favorites">Favoritos</button>
+                    <button class="dashboard-tab" data-tab="loyalty">Fidelidade</button>
+                </div>
+                
+                <!-- Aba do Perfil -->
+                <div class="dashboard-content" id="profileTab">
+                    <h3>Informações do Perfil</h3>
+                    <form class="form" id="profileForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="profileName">Nome Completo</label>
+                                <input type="text" id="profileName" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="profileEmail">Email</label>
+                                <input type="email" id="profileEmail" name="email" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="profilePhone">Telefone</label>
+                                <input type="tel" id="profilePhone" name="phone" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="profileAddress">Morada</label>
+                            <textarea id="profileAddress" name="address" rows="3" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="profileDietary">Preferências Dietéticas</label>
+                            <select id="profileDietary" name="dietary" multiple>
+                                <option value="vegetarian">Vegetariano</option>
+                                <option value="vegan">Vegano</option>
+                                <option value="gluten-free">Sem Glúten</option>
+                                <option value="dairy-free">Sem Lactose</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Atualizar Perfil</button>
+                    </form>
+                </div>
+                
+                <!-- Aba das Encomendas -->
+                <div class="dashboard-content" id="ordersTab" style="display: none;">
+                    <h3>Histórico de Encomendas</h3>
+                    <div class="orders-list" id="ordersList">
+                        <!-- Encomendas serão carregadas dinamicamente -->
+                    </div>
+                </div>
+                
+                <!-- Aba dos Favoritos -->
+                <div class="dashboard-content" id="favoritesTab" style="display: none;">
+                    <h3>Produtos Favoritos</h3>
+                    <div class="favorites-grid" id="favoritesGrid">
+                        <!-- Favoritos serão carregados dinamicamente -->
+                    </div>
+                </div>
+                
+                <!-- Aba da Fidelidade -->
+                <div class="dashboard-content" id="loyaltyTab" style="display: none;">
+                    <h3>Programa de Fidelidade</h3>
+                    <div class="loyalty-card">
+                        <h4>Os Seus Pontos de Fidelidade</h4>
+                        <div class="points-display">
+                            <span class="points-number" id="loyaltyPoints">0</span>
+                            <span class="points-label">Pontos</span>
+                        </div>
+                        <div class="points-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="loyaltyProgress"></div>
+                            </div>
+                            <p class="progress-text">Ganhe mais <span id="pointsToNext">50</span> pontos para a sua próxima recompensa!</p>
+                        </div>
+                        <div class="loyalty-benefits">
+                            <h5>Benefícios de Fidelidade</h5>
+                            <ul>
+                                <li>50 pontos = 250 MT de desconto na próxima compra</li>
+                                <li>100 pontos = Doce grátis à sua escolha</li>
+                                <li>200 pontos = Pão artesanal grátis</li>
+                                <li>500 pontos = Vale de 2500 MT</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Barra Lateral do Carrinho -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Carrinho de Compras</h3>
+            <button class="cart-close" id="cartClose">&times;</button>
+        </div>
+        <div class="cart-content" id="cartContent">
+            <div class="cart-empty" id="cartEmpty">
+                <p>O seu carrinho está vazio</p>
+                <a href="products.html" class="btn btn-primary">Começar a Comprar</a>
+            </div>
+        </div>
+        <div class="cart-footer" id="cartFooter" style="display: none;">
+            <div class="cart-total">
+                <span>Total: <span id="cartTotal">0.00</span> MT</span>
+            </div>
+            <button class="btn btn-primary btn-full" id="checkoutBtn">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <!-- Sobreposição do Carrinho -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+
+    <!-- Notificações Toast -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Modal de Confirmação de Revendedor -->
+    <div class="modal" id="resellerModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Acesso de Revendedor</h2>
+                <button class="modal-close" id="resellerModalClose">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Como revendedor, terá acesso a preços especiais com desconto. Confirma que é um revendedor autorizado?</p>
+                <div class="reseller-benefits">
+                    <h4>Benefícios de Revendedor:</h4>
+                    <ul>
+                        <li>20% de desconto em todos os produtos</li>
+                        <li>Preços especiais para compras em volume</li>
+                        <li>Prioridade no atendimento</li>
+                        <li>Produtos exclusivos para revenda</li>
+                    </ul>
+                </div>
+                <div class="modal-actions">
+                    <button class="btn btn-secondary" id="cancelResellerBtn">Cancelar</button>
+                    <button class="btn btn-primary" id="confirmResellerBtn">Confirmar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/users.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        // Inicializar página da conta
+        document.addEventListener('DOMContentLoaded', function() {
+            UserManager.init();
+        });
+    </script>
+</body>
+</html>
