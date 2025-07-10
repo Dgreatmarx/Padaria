@@ -1,10 +1,10 @@
 @@ .. @@
                 customerInfo: {
                     id: 1,
-                    name: 'João Silva',
+                    name: 'Daninga Marcelo Mazuze',
                     email: 'joao@exemplo.com',
-                    phone: '+258 84 123-4567',
-                    address: 'Rua das Flores, 123, Maputo, Moçambique'
+                    phone: '+258 84 526-1844',
+                    address: 'Bairro Boquisso, Q3, Matola, Moçambique'
                 },
                 items: [
                     { productId: 1, name: 'Pão Caseiro Tradicional', quantity: 2, price: 25 },
