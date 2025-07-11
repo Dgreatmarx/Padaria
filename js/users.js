@@ -42,6 +42,8 @@ const UserManager = {
         // Abas de autenticação
         const loginTab = document.getElementById('loginTab');
         const registerTab = document.getElementById('registerTab');
+        const supplierTab = document.getElementById('supplierTab');
+        const resellerTab = document.getElementById('resellerTab');
         
         if (loginTab) {
             loginTab.addEventListener('click', () => {
@@ -52,6 +54,18 @@ const UserManager = {
         if (registerTab) {
             registerTab.addEventListener('click', () => {
                 this.showRegisterForm();
+            });
+        }
+        
+        if (supplierTab) {
+            supplierTab.addEventListener('click', () => {
+                this.showSupplierForm();
+            });
+        }
+        
+        if (resellerTab) {
+            resellerTab.addEventListener('click', () => {
+                this.showResellerForm();
             });
         }
         
@@ -70,6 +84,24 @@ const UserManager = {
             registerForm.addEventListener('submit', (e) => {
                 e.preventDefault();
                 this.handleRegister(e);
+            });
+        }
+        
+        // Formulário de fornecedor
+        const supplierForm = document.getElementById('supplierFormElement');
+        if (supplierForm) {
+            supplierForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                this.handleSupplierLogin(e);
+            });
+        }
+        
+        // Formulário de revendedor
+        const resellerForm = document.getElementById('resellerFormElement');
+        if (resellerForm) {
+            resellerForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                this.handleResellerLogin(e);
             });
         }
         
@@ -102,26 +134,84 @@ const UserManager = {
     showLoginForm: function() {
         const loginTab = document.getElementById('loginTab');
         const registerTab = document.getElementById('registerTab');
+        const supplierTab = document.getElementById('supplierTab');
+        const resellerTab = document.getElementById('resellerTab');
         const loginForm = document.getElementById('loginForm');
         const registerForm = document.getElementById('registerForm');
+        const supplierForm = document.getElementById('supplierForm');
+        const resellerForm = document.getElementById('resellerForm');
         
         if (loginTab) loginTab.classList.add('active');
         if (registerTab) registerTab.classList.remove('active');
+        if (supplierTab) supplierTab.classList.remove('active');
+        if (resellerTab) resellerTab.classList.remove('active');
         if (loginForm) loginForm.style.display = 'block';
         if (registerForm) registerForm.style.display = 'none';
+        if (supplierForm) supplierForm.style.display = 'none';
+        if (resellerForm) resellerForm.style.display = 'none';
     },
     
     // Mostrar formulário de registo
     showRegisterForm: function() {
         const loginTab = document.getElementById('loginTab');
         const registerTab = document.getElementById('registerTab');
+        const supplierTab = document.getElementById('supplierTab');
+        const resellerTab = document.getElementById('resellerTab');
         const loginForm = document.getElementById('loginForm');
         const registerForm = document.getElementById('registerForm');
+        const supplierForm = document.getElementById('supplierForm');
+        const resellerForm = document.getElementById('resellerForm');
         
         if (loginTab) loginTab.classList.remove('active');
         if (registerTab) registerTab.classList.add('active');
+        if (supplierTab) supplierTab.classList.remove('active');
+        if (resellerTab) resellerTab.classList.remove('active');
         if (loginForm) loginForm.style.display = 'none';
         if (registerForm) registerForm.style.display = 'block';
+        if (supplierForm) supplierForm.style.display = 'none';
+        if (resellerForm) resellerForm.style.display = 'none';
+    },
+    
+    // Mostrar formulário de fornecedor
+    showSupplierForm: function() {
+        const loginTab = document.getElementById('loginTab');
+        const registerTab = document.getElementById('registerTab');
+        const supplierTab = document.getElementById('supplierTab');
+        const resellerTab = document.getElementById('resellerTab');
+        const loginForm = document.getElementById('loginForm');
+        const registerForm = document.getElementById('registerForm');
+        const supplierForm = document.getElementById('supplierForm');
+        const resellerForm = document.getElementById('resellerForm');
+        
+        if (loginTab) loginTab.classList.remove('active');
+        if (registerTab) registerTab.classList.remove('active');
+        if (supplierTab) supplierTab.classList.add('active');
+        if (resellerTab) resellerTab.classList.remove('active');
+        if (loginForm) loginForm.style.display = 'none';
+        if (registerForm) registerForm.style.display = 'none';
+        if (supplierForm) supplierForm.style.display = 'block';
+        if (resellerForm) resellerForm.style.display = 'none';
+    },
+    
+    // Mostrar formulário de revendedor
+    showResellerForm: function() {
+        const loginTab = document.getElementById('loginTab');
+        const registerTab = document.getElementById('registerTab');
+        const supplierTab = document.getElementById('supplierTab');
+        const resellerTab = document.getElementById('resellerTab');
+        const loginForm = document.getElementById('loginForm');
+        const registerForm = document.getElementById('registerForm');
+        const supplierForm = document.getElementById('supplierForm');
+        const resellerForm = document.getElementById('resellerForm');
+        
+        if (loginTab) loginTab.classList.remove('active');
+        if (registerTab) registerTab.classList.remove('active');
+        if (supplierTab) supplierTab.classList.remove('active');
+        if (resellerTab) resellerTab.classList.add('active');
+        if (loginForm) loginForm.style.display = 'none';
+        if (registerForm) registerForm.style.display = 'none';
+        if (supplierForm) supplierForm.style.display = 'none';
+        if (resellerForm) resellerForm.style.display = 'block';
     },
     
     // Lidar com login
@@ -217,6 +307,91 @@ const UserManager = {
         this.showDashboard();
         
         Utils.showToast('Registo realizado com sucesso!', 'success');
+    },
+    
+    // Lidar com login de fornecedor
+    handleSupplierLogin: function(e) {
+        const formData = new FormData(e.target);
+        const email = formData.get('email');
+        const password = formData.get('password');
+        const code = formData.get('code');
+        
+        // Validação básica
+        if (!email || !password || !code) {
+            Utils.showToast('Por favor, preencha todos os campos', 'error');
+            return;
+        }
+        
+        // Autenticação simulada para fornecedor
+        if (email === 'fornecedor@padariaverde.co.mz' && password === 'forn123' && code === 'FORN-2024') {
+            const supplier = {
+                id: 'supplier_001',
+                name: 'Fornecedor Agrícola Maputo',
+                email: email,
+                type: 'supplier',
+                code: code,
+                phone: '+258 84 555-0001',
+                address: 'Zona Agrícola de Maputo, Moçambique',
+                products: ['batata-doce', 'milho', 'mandioca', 'amendoim', 'feijao'],
+                joinDate: new Date().toISOString()
+            };
+            
+            this.currentUser = supplier;
+            this.saveToStorage();
+            this.showDashboard();
+            
+            Utils.showToast('Login de fornecedor realizado com sucesso!', 'success');
+        } else {
+            Utils.showToast('Credenciais de fornecedor inválidas', 'error');
+        }
+    },
+    
+    // Lidar com login de revendedor
+    handleResellerLogin: function(e) {
+        const formData = new FormData(e.target);
+        const email = formData.get('email');
+        const password = formData.get('password');
+        const license = formData.get('license');
+        
+        // Validação básica
+        if (!email || !password || !license) {
+            Utils.showToast('Por favor, preencha todos os campos', 'error');
+            return;
+        }
+        
+        // Autenticação simulada para revendedor
+        if (email === 'revendedor@exemplo.com' && password === 'rev123' && license === 'REV-2024') {
+            const reseller = {
+                id: 'reseller_001',
+                name: 'Revendedor Central',
+                email: email,
+                type: 'reseller',
+                license: license,
+                phone: '+258 87 555-0002',
+                address: 'Mercado Central, Maputo, Moçambique',
+                specialties: ['produtos-agricolas', 'paes-artesanais'],
+                joinDate: new Date().toISOString()
+            };
+            
+            this.currentUser = reseller;
+            this.saveToStorage();
+            this.showDashboard();
+            
+            // Ativar modo revendedor automaticamente
+            if (window.ProductCatalog) {
+                ProductCatalog.isResellerMode = true;
+                ProductCatalog.updateResellerInterface();
+            }
+            
+            if (window.CartManager) {
+                CartManager.isResellerMode = true;
+                CartManager.updateResellerMode(true);
+            }
+            
+            Utils.showToast('Login de revendedor realizado com sucesso! Modo revendedor ativado.', 'success');
+        } else {
+            Utils.showToast('Credenciais de revendedor inválidas', 'error');
+        }
     },
     
     // Logout do utilizador

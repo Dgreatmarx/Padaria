@@ -55,6 +55,8 @@
                 <div class="auth-toggle">
                     <button class="auth-tab active" id="loginTab">Entrar</button>
                     <button class="auth-tab" id="registerTab">Registar</button>
+                    <button class="auth-tab" id="supplierTab">Fornecedor</button>
+                    <button class="auth-tab" id="resellerTab">Revendedor</button>
                 </div>
                 
                 <!-- Formulário de Login -->
@@ -100,6 +102,48 @@
                         </div>
                         <button type="submit" class="btn btn-primary btn-full">Registar</button>
                     </form>
+                </div>
+                
+                <!-- Formulário de Login Fornecedor -->
+                <div class="auth-form" id="supplierForm" style="display: none;">
+                    <h2>Acesso de Fornecedor</h2>
+                    <form class="form" id="supplierFormElement">
+                        <div class="form-group">
+                            <label for="supplierEmail">Email do Fornecedor</label>
+                            <input type="email" id="supplierEmail" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="supplierPassword">Palavra-passe</label>
+                            <input type="password" id="supplierPassword" name="password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="supplierCode">Código de Fornecedor</label>
+                            <input type="text" id="supplierCode" name="code" placeholder="FORN-XXXX" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">Entrar como Fornecedor</button>
+                    </form>
+                    <p class="auth-note">Demo: Use fornecedor@padariaverde.co.mz / senha: forn123 / código: FORN-2024</p>
+                </div>
+                
+                <!-- Formulário de Login Revendedor -->
+                <div class="auth-form" id="resellerForm" style="display: none;">
+                    <h2>Acesso de Revendedor</h2>
+                    <form class="form" id="resellerFormElement">
+                        <div class="form-group">
+                            <label for="resellerEmail">Email do Revendedor</label>
+                            <input type="email" id="resellerEmail" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="resellerPassword">Palavra-passe</label>
+                            <input type="password" id="resellerPassword" name="password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="resellerLicense">Licença de Revendedor</label>
+                            <input type="text" id="resellerLicense" name="license" placeholder="REV-XXXX" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">Entrar como Revendedor</button>
+                    </form>
+                    <p class="auth-note">Demo: Use revendedor@exemplo.com / senha: rev123 / licença: REV-2024</p>
                 </div>
             </div>
 
