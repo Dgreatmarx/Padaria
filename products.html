@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos - Padaria Crosta Dourada</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-brand">
+                <h1 class="logo">Crosta Dourada</h1>
+                <span class="tagline">Padaria Artesanal</span>
+            </div>
+            
+            <nav class="nav-menu" id="navMenu">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Início</a></li>
+                    <li><a href="products.html" class="nav-link active">Produtos</a></li>
+                    <li><a href="index.html#about" class="nav-link">Sobre</a></li>
+                    <li><a href="index.html#contact" class="nav-link">Contacto</a></li>
+                    <li><a href="account.html" class="nav-link">Conta</a></li>
+                </ul>
+            </nav>
+            
+            <div class="nav-actions">
+                <button class="reseller-toggle" id="resellerToggle">
+                    <span class="reseller-icon">🏪</span>
+                    <span class="reseller-text">Sou Revendedor</span>
+                </button>
+                <button class="cart-toggle" id="cartToggle">
+                    <span class="cart-icon">🛒</span>
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+                <button class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Cabeçalho dos Produtos -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Os Nossos Produtos</h1>
+            <p class="page-subtitle">Descubra a nossa gama completa de pães e doces frescos</p>
+            <div class="reseller-status" id="resellerStatus" style="display: none;">
+                <span class="reseller-badge">🏪 Modo Revendedor Ativo - Preços com Desconto</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Produtos -->
+    <section class="products-section">
+        <div class="container">
+            <!-- Filtros -->
+            <div class="products-filters">
+                <div class="filter-group">
+                    <label for="searchProducts">Pesquisar:</label>
+                    <input type="text" id="searchProducts" placeholder="Pesquisar produtos...">
+                </div>
+                
+                <div class="filter-group">
+                    <label for="categoryFilter">Categoria:</label>
+                    <select id="categoryFilter">
+                        <option value="">Todas as Categorias</option>
+                        <option value="artisan">Pães Artesanais</option>
+                        <option value="whole-grain">Grãos Integrais</option>
+                        <option value="sweet">Pães Doces</option>
+                        <option value="specialty">Especialidades</option>
+                        <option value="pastries">Doces</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="dietaryFilter">Dietético:</label>
+                    <select id="dietaryFilter">
+                        <option value="">Todas as Opções</option>
+                        <option value="vegetarian">Vegetariano</option>
+                        <option value="vegan">Vegano</option>
+                        <option value="gluten-free">Sem Glúten</option>
+                        <option value="dairy-free">Sem Lactose</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="sortBy">Ordenar Por:</label>
+                    <select id="sortBy">
+                        <option value="name">Nome</option>
+                        <option value="price-low">Preço: Menor para Maior</option>
+                        <option value="price-high">Preço: Maior para Menor</option>
+                        <option value="popular">Mais Popular</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Grade de Produtos -->
+            <div class="products-grid" id="productsGrid">
+                <!-- Produtos serão carregados dinamicamente -->
+            </div>
+
+            <!-- Mensagem de Nenhum Resultado -->
+            <div class="no-results" id="noResults" style="display: none;">
+                <h3>Nenhum produto encontrado</h3>
+                <p>Tente ajustar os seus critérios de pesquisa ou navegue por todos os produtos.</p>
+                <button class="btn btn-primary" id="clearFilters">Limpar Filtros</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal de Detalhes do Produto -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Detalhes do Produto</h2>
+                <button class="modal-close" id="modalClose">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Detalhes do produto serão carregados aqui -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Barra Lateral do Carrinho -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Carrinho de Compras</h3>
+            <button class="cart-close" id="cartClose">&times;</button>
+        </div>
+        <div class="cart-content" id="cartContent">
+            <div class="cart-empty" id="cartEmpty">
+                <p>O seu carrinho está vazio</p>
+                <a href="products.html" class="btn btn-primary">Começar a Comprar</a>
+            </div>
+        </div>
+        <div class="cart-footer" id="cartFooter" style="display: none;">
+            <div class="cart-total">
+                <span>Total: <span id="cartTotal">0.00</span> MT</span>
+            </div>
+            <button class="btn btn-primary btn-full" id="checkoutBtn">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <!-- Sobreposição do Carrinho -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+
+    <!-- Notificações Toast -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Spinner de Carregamento -->
+    <div class="loading-spinner" id="loadingSpinner" style="display: none;">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Modal de Confirmação de Revendedor -->
+    <div class="modal" id="resellerModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Acesso de Revendedor</h2>
+                <button class="modal-close" id="resellerModalClose">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Como revendedor, terá acesso a preços especiais com desconto. Confirma que é um revendedor autorizado?</p>
+                <div class="reseller-benefits">
+                    <h4>Benefícios de Revendedor:</h4>
+                    <ul>
+                        <li>20% de desconto em todos os produtos</li>
+                        <li>Preços especiais para compras em volume</li>
+                        <li>Prioridade no atendimento</li>
+                        <li>Produtos exclusivos para revenda</li>
+                    </ul>
+                </div>
+                <div class="modal-actions">
+                    <button class="btn btn-secondary" id="cancelResellerBtn">Cancelar</button>
+                    <button class="btn btn-primary" id="confirmResellerBtn">Confirmar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        // Inicializar página de produtos
+        document.addEventListener('DOMContentLoaded', function() {
+            ProductCatalog.init();
+            ProductCatalog.loadAllProducts();
+        });
+    </script>
+</body>
+</html>

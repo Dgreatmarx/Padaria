@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Padaria Crosta Dourada - Pães Artesanais e Doces</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-brand">
+                <h1 class="logo">Crosta Dourada</h1>
+                <span class="tagline">Padaria Artesanal</span>
+            </div>
+            
+            <nav class="nav-menu" id="navMenu">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link active">Início</a></li>
+                    <li><a href="products.html" class="nav-link">Produtos</a></li>
+                    <li><a href="#about" class="nav-link">Sobre</a></li>
+                    <li><a href="#contact" class="nav-link">Contacto</a></li>
+                    <li><a href="account.html" class="nav-link">Conta</a></li>
+                </ul>
+            </nav>
+            
+            <div class="nav-actions">
+                <button class="reseller-toggle" id="resellerToggle">
+                    <span class="reseller-icon">🏪</span>
+                    <span class="reseller-text">Sou Revendedor</span>
+                </button>
+                <button class="cart-toggle" id="cartToggle">
+                    <span class="cart-icon">🛒</span>
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+                <button class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Seção Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Assados Frescos Diariamente</h1>
+            <p class="hero-subtitle">Experimente os melhores pães artesanais e doces, feitos com paixão usando técnicas tradicionais e ingredientes premium.</p>
+            <div class="hero-actions">
+                <a href="products.html" class="btn btn-primary">Comprar Agora</a>
+                <a href="#about" class="btn btn-secondary">Saber Mais</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.pexels.com/photos/1775043/pexels-photo-1775043.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Pão artesanal fresco">
+        </div>
+    </section>
+
+    <!-- Produtos em Destaque -->
+    <section class="featured-products">
+        <div class="container">
+            <h2 class="section-title">Seleções Frescas de Hoje</h2>
+            <div class="products-grid" id="featuredProducts">
+                <!-- Produtos serão carregados dinamicamente -->
+            </div>
+            <div class="section-actions">
+                <a href="products.html" class="btn btn-outline">Ver Todos os Produtos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Especiais Diários -->
+    <section class="daily-specials">
+        <div class="container">
+            <h2 class="section-title">Especiais Diários</h2>
+            <div class="specials-grid">
+                <div class="special-card">
+                    <h3>Especial de Segunda</h3>
+                    <p>Pães de Massa Azeda Frescos</p>
+                    <span class="special-price">350 MT</span>
+                    <small>Normal 425 MT</small>
+                </div>
+                <div class="special-card">
+                    <h3>Escolha do Padeiro</h3>
+                    <p>Pacote de Sanduíches Artesanais</p>
+                    <span class="special-price">650 MT</span>
+                    <small>Normal 800 MT</small>
+                </div>
+                <div class="special-card">
+                    <h3>Oferta Doce</h3>
+                    <p>Combo Doce & Café</p>
+                    <span class="special-price">450 MT</span>
+                    <small>Normal 575 MT</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Sobre -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>A Nossa História</h2>
+                    <p>Há mais de 25 anos, a Padaria Crosta Dourada tem servido a comunidade com pães artesanais e doces excepcionais. Os nossos mestres padeiros combinam técnicas tradicionais com ingredientes premium para criar produtos que unem famílias à mesa.</p>
+                    <p>Cada pão é feito à mão com cuidado, usando métodos consagrados pelo tempo que foram passados através de gerações. Acreditamos que um bom pão é mais do que apenas comida – é uma ligação à nossa herança e comunidade.</p>
+                    <div class="about-features">
+                        <div class="feature">
+                            <h4>✨ Feito Artesanalmente</h4>
+                            <p>Moldado à mão por padeiros especializados</p>
+                        </div>
+                        <div class="feature">
+                            <h4>🌾 Ingredientes Premium</h4>
+                            <p>Fornecidos localmente, orgânicos quando possível</p>
+                        </div>
+                        <div class="feature">
+                            <h4>🕒 Fresco Diariamente</h4>
+                            <p>Assado fresco todas as manhãs</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.pexels.com/photos/1775043/pexels-photo-1775043.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Padeiro no trabalho">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Contacto -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Visite-nos</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Horário de Funcionamento</h3>
+                    <ul class="hours-list">
+                        <li><span>Segunda - Sexta:</span> 06:00 - 20:00</li>
+                        <li><span>Sábado:</span> 07:00 - 21:00</li>
+                        <li><span>Domingo:</span> 08:00 - 18:00</li>
+                    </ul>
+                    
+                    <h3>Localização</h3>
+                    <p>Rua da Padaria, 123<br>Distrito Central<br>Maputo, Moçambique</p>
+                    
+                    <h3>Contacto</h3>
+                    <p>Telefone: +258 21 123-PÃO<br>Email: ola@crostadourada.co.mz</p>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Entre em Contacto</h3>
+                    <form class="form" id="contactForm">
+                        <div class="form-group">
+                            <label for="contactName">Nome</label>
+                            <input type="text" id="contactName" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactEmail">Email</label>
+                            <input type="email" id="contactEmail" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactMessage">Mensagem</label>
+                            <textarea id="contactMessage" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Padaria Crosta Dourada</h4>
+                    <p>Criando pães e doces excepcionais desde 1998</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="products.html">Produtos</a></li>
+                        <li><a href="account.html">Conta</a></li>
+                        <li><a href="#about">Sobre</a></li>
+                        <li><a href="#contact">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Siga-nos</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link">Facebook</a>
+                        <a href="#" class="social-link">Instagram</a>
+                        <a href="#" class="social-link">Twitter</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Padaria Crosta Dourada. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Barra Lateral do Carrinho -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Carrinho de Compras</h3>
+            <button class="cart-close" id="cartClose">&times;</button>
+        </div>
+        <div class="cart-content" id="cartContent">
+            <div class="cart-empty" id="cartEmpty">
+                <p>O seu carrinho está vazio</p>
+                <a href="products.html" class="btn btn-primary">Começar a Comprar</a>
+            </div>
+        </div>
+        <div class="cart-footer" id="cartFooter" style="display: none;">
+            <div class="cart-total">
+                <span>Total: <span id="cartTotal">0.00</span> MT</span>
+            </div>
+            <button class="btn btn-primary btn-full" id="checkoutBtn">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <!-- Sobreposição do Carrinho -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+
+    <!-- Notificações Toast -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Spinner de Carregamento -->
+    <div class="loading-spinner" id="loadingSpinner" style="display: none;">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Modal de Confirmação de Revendedor -->
+    <div class="modal" id="resellerModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Acesso de Revendedor</h2>
+                <button class="modal-close" id="resellerModalClose">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Como revendedor, terá acesso a preços especiais com desconto. Confirma que é um revendedor autorizado?</p>
+                <div class="reseller-benefits">
+                    <h4>Benefícios de Revendedor:</h4>
+                    <ul>
+                        <li>20% de desconto em todos os produtos</li>
+                        <li>Preços especiais para compras em volume</li>
+                        <li>Prioridade no atendimento</li>
+                        <li>Produtos exclusivos para revenda</li>
+                    </ul>
+                </div>
+                <div class="modal-actions">
+                    <button class="btn btn-secondary" id="cancelResellerBtn">Cancelar</button>
+                    <button class="btn btn-primary" id="confirmResellerBtn">Confirmar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
