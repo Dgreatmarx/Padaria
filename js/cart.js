@@ -99,7 +99,41 @@ const CartManager = {
         
         this.saveToStorage();
         this.updateCartDisplay();
+        
+        // Verificar modo revendedor automático
+        this.checkAutoResellerMode();
+        
         return true;
+    },
+    
+    // Verificar e ativar modo revendedor automaticamente se carrinho tem 10+ itens
+    checkAutoResellerMode: function() {
+        const totalItems = this.getItemCount();
+        
+        if (totalItems >= 10 && !this.isResellerMode) {
+            // Ativar modo revendedor automaticamente
+            this.isResellerMode = true;
+            
+            // Atualizar ProductCatalog
+            if (window.ProductCatalog) {
+                ProductCatalog.isResellerMode = true;
+                ProductCatalog.updateResellerInterface();
+            }
+            
+            // Atualizar preços dos itens no carrinho
+            this.items.forEach(item => {
+                const product = ProductCatalog.getProductById(item.productId);
+                if (product) {
+                    item.price = product.resellerPrice;
+                    item.isResellerPrice = true;
+                }
+            });
+            
+            this.saveToStorage();
+            this.updateCartDisplay();
+            
+            Utils.showToast('🏪 Modo Revendedor ativado automaticamente! Descontos aplicados para compras em volume.', 'success', 5000);
+        }
     },
     
     // Remover item do carrinho
@@ -131,6 +165,9 @@ const CartManager = {
         item.quantity = newQuantity;
         this.saveToStorage();
         this.updateCartDisplay();
+        
+        // Verificar modo revendedor automático
+        this.checkAutoResellerMode();
     },
     
     // Obter total do carrinho
