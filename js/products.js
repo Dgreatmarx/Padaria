@@ -36,7 +36,7 @@ const ProductCatalog = {
         },
         {
             id: 3,
-            name: "Pão Francês Moçambicano",
+            name: "Pão de Batata doce",
             category: "tradicional",
             price: 15,
             resellerPrice: 12,
